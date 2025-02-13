@@ -19,7 +19,7 @@
 					<h4 class="text-center mb-4">
 						Заголовок вашей формы
 					</h4>
-					<form method="post">
+					<form action="", method="post">
                         {% csrf_token %}
 						<!-- Запишите здесь тег {% csrf_token %} -->
 
@@ -43,22 +43,36 @@
                         <div class="form-input">
                             <textarea id="my_textarea" name="my_textarea" rows="10" placeholder="Начни писать здесь" required></textarea>
                         </div>
+						<label for="email">Введите email</label>
+						<div class="form-input">
+							<span><i class="fa fa-at"></i></span>
+							<input type="email" id="email" name="email" placeholder="Введи адрес электронной почты">
+						</div>
+						<label for="password">Введите пароль</label>
+						<div class="form-input">
+							<span><i class="fa fa-key"></i></span>
+							<input type = "password" id="password" name="password" placeholder="Введите пароль">
+						</div>
+						<label for="date">Введите дату</label>
+						<div class="form-input">
+							<span><i class="fa fa-calendar-o "></i></span>
+							<input type = "date" id="date" name="date" placeholder="">
+						</div>
+						<label for="number">Введите целое число</label>
+						<div class="form-input">
+							<span><i class="fa fa-calendar-o "></i></span>
+							<input type = "number" id="number" name="number" placeholder="">
+						</div>
+						<label for="checkbox">Нажмешь на checkbox</label>
+						<div class="form-input">
+							<input type = "checkbox" id="checkbox" name="checkbox" placeholder="">
+						</div>
+						{% if form.errors %}
+    						<div class="mb-3 d-flex align-items-center">
+        						<span style="color: red; font-size: 16px">{{ form.errors }}</span>
+    						</div>
+						{% endif %}
 
-                        <!-- Добавьте своих полей --------------------------------------------------------------------->
-                        <!-- Сформируйте и заполните нужные строки ввода (оберните их <div class="form-input"> как показано выше. Это нужно чтобы были одинаковые стили)-->
-
-                        <!---- Добавьте еще поле для ввода email (придумайте текст для label)---->
-
-                        <!---- Добавьте еще поле для ввода пароля (придумайте текст для label)---->
-
-                        <!---- Добавьте еще поле для ввода даты (придумайте текст для label)---->
-
-                        <!---- Добавьте еще поле для ввода целого значения (придумайте текст для label)---->
-
-                        <!---- Добавьте еще поле для переключателя checkbox (придумайте текст для label)---->
-                        <!--------------------------------------------------------------------------------------------->
-
-                        <!-- В форме всегда присутствует кнопка чтобы что-то отправить. Кнопку не изменять! -->
 						<div class="mb-3"> 
 							<button type="submit" class="btn btn-block">
 								Отправить данные

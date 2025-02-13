@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+    'social_django',
+    'landing'
 ]
 
 MIDDLEWARE = [
@@ -122,3 +124,23 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTHENTICATION_BACKENDS = (
+   'social_core.backends.github.GithubOAuth2',
+   'django.contrib.auth.backends.ModelBackend',
+)
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # Пример настроек для использования консольного бэкенда (для тестирования)
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.ethereal.email'
+EMAIL_HOST_USER = 'skyla60@ethereal.email'
+EMAIL_HOST_PASSWORD = 'TZBPF1Xm6jfSEBpsbg'
+EMAIL_PORT = '587'
+EMAIL_USE_TLS = True
+
+LOGIN_REDIRECT_URL = '/profile/' # Чтобы после авторизации перенаправлялось на страницу пользователя
+
+SOCIAL_AUTH_GITHUB_KEY = 'Ov23lig2DxYQbGWDknay'
+SOCIAL_AUTH_GITHUB_SECRET = '407a046df4a63d97191198d4a8f72ca575e753c3'
+SOCIAL_AUTH_GITHUB_SCOPE = ['user:email', 'read:user']
